@@ -6,6 +6,9 @@ foreach(source ${srcs})
     add_executable(${testname} ${source})
     target_link_libraries(${testname} Sorting)
     target_link_libraries(${testname} boost_unit_test_framework)
-    add_test(NAME ${testname} COMMAND ${testname})
+    target_link_libraries(${testname} Utils)
 
+    target_include_directories(${testname} SYSTEM PUBLIC "${CMAKE_SOURCE_DIR}/source/Utils/")
+
+    add_test(NAME ${testname} COMMAND ${testname})
 endforeach(source ${srcs})

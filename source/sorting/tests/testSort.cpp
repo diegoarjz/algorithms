@@ -4,8 +4,12 @@
 #include <boost/test/unit_test.hpp>
 
 #include <random>
+#include <iterator>
+
+#include <Timer.h>
 
 #include "../InsertionSort.h"
+#include "../SelectSort.h"
 
 template<class T>
 bool isSorted(const T& container){
@@ -41,7 +45,11 @@ struct fixture{
 BOOST_AUTO_TEST_CASE(test_insertion_sort_small){
     fixture f;
     
-    InsertionSort(std::begin(f.smallList), std::end(f.smallList));
+    {
+        std::cout << "test_insertion_sort_small: ";
+        Timer t;
+        InsertionSort(std::begin(f.smallList), std::end(f.smallList));
+    }
     
     BOOST_CHECK( isSorted(f.smallList) );
 }
@@ -49,7 +57,35 @@ BOOST_AUTO_TEST_CASE(test_insertion_sort_small){
 BOOST_AUTO_TEST_CASE(test_insertion_sort_huge){
     fixture f;
     
-    InsertionSort(std::begin(f.hugeList), std::end(f.hugeList));
+    {
+        std::cout << "test_insertion_sort_huge: ";
+        Timer t;
+        InsertionSort(std::begin(f.hugeList), std::end(f.hugeList));
+    }
+    
+    BOOST_CHECK( isSorted(f.hugeList) );
+}
+
+BOOST_AUTO_TEST_CASE(test_select_sort_small){
+    fixture f;
+    
+    {
+        std::cout << "test_select_sort_small: ";
+        Timer t;
+        SelectSort(std::begin(f.smallList), std::end(f.smallList));
+    }
+    
+    BOOST_CHECK( isSorted(f.smallList) );
+}
+
+BOOST_AUTO_TEST_CASE(test_select_sort_huge){
+    fixture f;
+    
+    {
+        std::cout << "test_select_sort_huge: ";
+        Timer t;
+        SelectSort(std::begin(f.hugeList), std::end(f.hugeList));
+    }
     
     BOOST_CHECK( isSorted(f.hugeList) );
 }
