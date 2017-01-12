@@ -1,8 +1,6 @@
 #ifndef Algorithms_InsertionSort_H_
 #define Algorithms_InsertionSort_H_
 
-#include <iostream>
-
 /**
  * Sorts the iterator range using Insertion Sort.
  */
