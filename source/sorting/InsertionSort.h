@@ -3,21 +3,24 @@
 
 /**
  * Sorts the iterator range using Insertion Sort.
+ *
+ * Worst Case: O(n^2)
+ * Average Case: O(n^2)
+ * Best Case: O(n)
  */
-template<class RandomAccessIterator>
-void InsertionSort(RandomAccessIterator start, RandomAccessIterator end){
+template<class BidirectionalIterator>
+void InsertionSort(BidirectionalIterator start, BidirectionalIterator end){
     
     auto sortedIter=start;
-    auto reverseEnd = std::reverse_iterator<RandomAccessIterator>(start);
+    auto reverseEnd = std::reverse_iterator<BidirectionalIterator>(start);
 
     for(auto unsortedIter = std::next(sortedIter); unsortedIter!=end; ++unsortedIter){
         auto unsortedValue = *unsortedIter;
         
-        auto reverseIter = std::reverse_iterator<RandomAccessIterator>(std::next(sortedIter));
+        auto reverseIter = std::reverse_iterator<BidirectionalIterator>(std::next(sortedIter));
         
         // Find the best position for the item
         for(/**/; reverseIter!=reverseEnd && *reverseIter > unsortedValue; ++reverseIter){
-            //std::swap(*std::prev(reverseIter), *reverseIter);
             *std::prev(reverseIter) = *reverseIter;
         }
         *std::prev(reverseIter) = unsortedValue;

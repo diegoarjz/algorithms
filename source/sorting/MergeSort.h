@@ -1,8 +1,15 @@
 #ifndef Algorithms_MergeSort_H_
 #define Algorithms_MergeSort_H_
 
-template<class RandomAccessIterator>
-void MergeSort(RandomAccessIterator start, RandomAccessIterator end){
+/**
+ * Sorts the items in the range using Merge Sort.
+ *
+ * Worst Case: O(n.Log(n))
+ * Average Case: O(n.Log(n))
+ * Best Case: O(n.Log(n))
+ */
+template<class BidirectionalIterator>
+void MergeSort(BidirectionalIterator start, BidirectionalIterator end){
     auto size = std::distance(start, end);
     
     if(size == 1){
@@ -18,7 +25,7 @@ void MergeSort(RandomAccessIterator start, RandomAccessIterator end){
     auto leftStartIter = start;
     auto rightStartIter = middle;
     
-    std::vector<typename RandomAccessIterator::value_type> container(size);
+    std::vector<typename BidirectionalIterator::value_type> container(size);
     auto inserter = std::back_inserter(container);
     
     while(leftStartIter != middle && rightStartIter != end){

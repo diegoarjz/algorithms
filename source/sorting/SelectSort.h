@@ -1,8 +1,15 @@
 #ifndef Algorithms_SelectSort_H_
 #define Algorithms_SelectSort_H_
 
-template<class RandomAccessIterator>
-void SelectSort(RandomAccessIterator start, RandomAccessIterator end){
+/**
+ * Sorts the items in the given range using Select Sort.
+ *
+ * Worst Case: O(n^2)
+ * Average Case: O(n^2)
+ * Best Case: O(n^2)
+ */
+template<class BidirectionalIterator>
+void SelectSort(BidirectionalIterator start, BidirectionalIterator end){
     for(auto sorted=start; sorted!=end; ++sorted){
         
         auto min = sorted;

@@ -1,8 +1,15 @@
 #ifndef Algorithms_BubbleSort_H_
 #define Algorithms_BubbleSort_H_
 
-template<class RandomAccessIterator>
-void BubbleSort(RandomAccessIterator start, RandomAccessIterator end){
+/**
+ * Sorts the range between the iterators using Bubble Sort.
+ *
+ * Worst Case: O(n^2)
+ * Average Case: O(n^2)
+ * Best Case: O(n)
+ */
+template<class BidirectionalIterator>
+void BubbleSort(BidirectionalIterator start, BidirectionalIterator end){
     bool swapped = false;
     auto lastUnsorted = end;
     do{
