@@ -14,6 +14,7 @@
 #include "../SelectSort.h"
 #include "../BubbleSort.h"
 #include "../MergeSort.h"
+#include "../QuickSort.h"
 
 template<class T>
 bool isSorted(const T& container){
@@ -176,6 +177,35 @@ BOOST_AUTO_TEST_CASE(test_merge_sort_huge){
         std::cout << "test_merge_sort_huge: ";
         Timer t;
         MergeSort(std::begin(f.hugeList), std::end(f.hugeList));
+    }
+    
+    BOOST_CHECK( isSorted(f.hugeList) );
+}
+
+/* ************
+ * Quick Sort *
+ * ***********/
+BOOST_AUTO_TEST_CASE(test_quik_sort_small){
+    fixture f;
+    
+    {
+        std::copy(std::begin(f.smallList), std::end(f.smallList), std::ostream_iterator<int>(std::cout, " "));
+        std::cout << std::endl;
+        std::cout << "test_quick_sort_small: ";
+        Timer t;
+        QuickSort(std::begin(f.smallList), std::end(f.smallList));
+    }
+    
+    BOOST_CHECK( isSorted(f.smallList) );
+}
+
+BOOST_AUTO_TEST_CASE(test_quick_sort_huge){
+    fixture f;
+    
+    {
+        std::cout << "test_quick_sort_huge: ";
+        Timer t;
+        QuickSort(std::begin(f.hugeList), std::end(f.hugeList));
     }
     
     BOOST_CHECK( isSorted(f.hugeList) );
