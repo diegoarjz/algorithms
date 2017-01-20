@@ -1,5 +1,5 @@
 #define BOOST_TEST_DYN_LINK
-#define BOOST_TEST_MODULE Sorting
+#define BOOST_TEST_MODULE ReverseBit
 
 #include <boost/test/unit_test.hpp>
 
